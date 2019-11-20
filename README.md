@@ -50,7 +50,7 @@ I'm not sure why you'd need to install this program. It's a solution to a challe
 
 After installing you'll be able to use the terminal to run the program to make pancake stacks.
 
-`mkpks -t`
+`RevengeOfThePancakes -t`
 
 ## Running the tests
 
