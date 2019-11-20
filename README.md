@@ -48,7 +48,7 @@ I'm not sure why you'd need to install this program. It's a solution to a challe
 
 `go install`
 
-After installing you'll be able to use the terminal to run the program to make pancake stacks.
+After installing you'll be able to use the terminal to run the program to make pancake stacks happy again.
 
 `RevengeOfThePancakes -t`
 
