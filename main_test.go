@@ -100,43 +100,43 @@ func TestFindAndTop(t *testing.T) {
 
 func TestVerifyPancakeStack(t *testing.T) {
 	// Case #1: 1
-	results := VerifyPancakeStack("-")
+	results, _ := VerifyPancakeStack("-")
 	if results != true {
 		t.Errorf("Found wrong pancake from stack to flip, got %t, want: %t.", results, true)
 	}
 	// Case #2: 1
-	results = VerifyPancakeStack("-+")
+	results, _ = VerifyPancakeStack("-+")
 	if results != true {
 		t.Errorf("Found wrong pancake from stack to flip, got %t, want: %t.", results, true)
 	}
 	// Case #3: 2
-	results = VerifyPancakeStack("+-")
+	results, _ = VerifyPancakeStack("+-")
 	if results != true {
 		t.Errorf("Found wrong pancake from stack to flip, got %t, want: %t.", results, true)
 	}
 	// Case #4: 0
-	results = VerifyPancakeStack("+++")
+	results, _ = VerifyPancakeStack("+++")
 	if results != true {
 		t.Errorf("Found wrong pancake from stack to flip, got %t, want: %t.", results, true)
 	}
 	// Case #5: 3
-	results = VerifyPancakeStack("--+-")
+	results, _ = VerifyPancakeStack("--+-")
 	if results != true {
 		t.Errorf("Found wrong pancake from stack to flip, got %t, want: %t.", results, true)
 	}
-	results = VerifyPancakeStack("--a+-")
+	results, _ = VerifyPancakeStack("--a+-")
 	if results != false {
 		t.Errorf("Found wrong pancake from stack to flip, got %t, want: %t.", results, false)
 	}
-	results = VerifyPancakeStack("--=+-")
+	results, _ = VerifyPancakeStack("--=+-")
 	if results != false {
 		t.Errorf("Found wrong pancake from stack to flip, got %t, want: %t.", results, false)
 	}
-	results = VerifyPancakeStack("-- +-5")
+	results, _ = VerifyPancakeStack("-- +-5")
 	if results != false {
 		t.Errorf("Found wrong pancake from stack to flip, got %t, want: %t.", results, false)
 	}
-	results = VerifyPancakeStack("+-+-+------++++++-+-+-+-+------++++++-+-+-+-+------++++++-+-+-+-+------++++++-+-+-+-+------++++++-+-+-+-+------++++++-+-")
+	results, _ = VerifyPancakeStack("+-+-+------++++++-+-+-+-+------++++++-+-+-+-+------++++++-+-+-+-+------++++++-+-+-+-+------++++++-+-+-+-+------++++++-+-")
 	if results != false {
 		t.Errorf("Found wrong pancake from stack to flip, got %t, want: %t.", results, false)
 	}
