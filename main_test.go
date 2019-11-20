@@ -1,13 +1,9 @@
 package main
 
-import "testing"
-
-func TestSum(t *testing.T) {
-	total := Sum(5, 5)
-	if total != 10 {
-		t.Errorf("Sum was incorrect, got: %d, want: %d.", total, 10)
-	}
-}
+import (
+	"fmt"
+	"testing"
+)
 
 func TestFlipPancake(t *testing.T) {
 
@@ -93,5 +89,55 @@ func TestFindAndTop(t *testing.T) {
 	resultStack, numberOfFlips = FindAndFlip("--+-")
 	if resultStack != "++++" && numberOfFlips != 1 {
 		t.Errorf("Wrong results for flipped pancake stack, got %s %d flips, want: %s %d flips.", resultStack, numberOfFlips, "++++", 3)
+	}
+	resultStack, numberOfFlips = FindAndFlip("+-+-+------++++++-+-+-+-+------++++++-+-+-+-+------++++++-+-+-+-+------++++++-+-+-+-+------++++++-+")
+	if resultStack != "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++" {
+		t.Errorf("Found wrong pancake from stack to flip, got %s, %d want: %s %d.", resultStack, numberOfFlips, "++++", 3)
+	} else {
+		fmt.Printf("Awesome %s took %d flips", resultStack, numberOfFlips)
+	}
+}
+
+func TestVerifyPancakeStack(t *testing.T) {
+	// Case #1: 1
+	results := VerifyPancakeStack("-")
+	if results != true {
+		t.Errorf("Found wrong pancake from stack to flip, got %t, want: %t.", results, true)
+	}
+	// Case #2: 1
+	results = VerifyPancakeStack("-+")
+	if results != true {
+		t.Errorf("Found wrong pancake from stack to flip, got %t, want: %t.", results, true)
+	}
+	// Case #3: 2
+	results = VerifyPancakeStack("+-")
+	if results != true {
+		t.Errorf("Found wrong pancake from stack to flip, got %t, want: %t.", results, true)
+	}
+	// Case #4: 0
+	results = VerifyPancakeStack("+++")
+	if results != true {
+		t.Errorf("Found wrong pancake from stack to flip, got %t, want: %t.", results, true)
+	}
+	// Case #5: 3
+	results = VerifyPancakeStack("--+-")
+	if results != true {
+		t.Errorf("Found wrong pancake from stack to flip, got %t, want: %t.", results, true)
+	}
+	results = VerifyPancakeStack("--a+-")
+	if results != false {
+		t.Errorf("Found wrong pancake from stack to flip, got %t, want: %t.", results, false)
+	}
+	results = VerifyPancakeStack("--=+-")
+	if results != false {
+		t.Errorf("Found wrong pancake from stack to flip, got %t, want: %t.", results, false)
+	}
+	results = VerifyPancakeStack("-- +-5")
+	if results != false {
+		t.Errorf("Found wrong pancake from stack to flip, got %t, want: %t.", results, false)
+	}
+	results = VerifyPancakeStack("+-+-+------++++++-+-+-+-+------++++++-+-+-+-+------++++++-+-+-+-+------++++++-+-+-+-+------++++++-+-+-+-+------++++++-+-")
+	if results != false {
+		t.Errorf("Found wrong pancake from stack to flip, got %t, want: %t.", results, false)
 	}
 }
