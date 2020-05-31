@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"io"
 	"os"
+	"strings"
 )
 
 // HandleFile will take a file where each line is expected to be a new stack of pancakes to solve.
@@ -25,9 +26,12 @@ func HandleFile(filePath string) error {
 	for {
 		line, err = reader.ReadString('\n')
 
-		line = OldConvertNewLine(line)
+		line = ConvertNewLine(line)
 
-		OldSolveStack(testID, line)
+		flips := findAndFlip(line)
+
+		fmt.Println(testID, line, flips)
+
 		testID++
 		if err != nil {
 			break
@@ -39,4 +43,11 @@ func HandleFile(filePath string) error {
 	}
 
 	return nil
+}
+
+// ConvertNewLine changes CRLF to LF
+func ConvertNewLine(text string) string {
+	text = strings.Replace(text, "\r\n", "\n", -1)
+	text = strings.Replace(text, "\n", "", -1)
+	return text
 }

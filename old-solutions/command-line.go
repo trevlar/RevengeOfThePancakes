@@ -9,7 +9,8 @@ import (
 // The terminal allows verbose mode which will log out the transformation of the pancake stack as it happens.
 var isVerbose = false
 
-func handleCommandLine() {
+// HandleCommandLine will handle running the program initiation.
+func HandleCommandLine() {
 	args := os.Args
 	if len(args) > 1 {
 		var handleInput bool
@@ -54,7 +55,9 @@ func handleCommandLine() {
 		if handleTestCases {
 			HandleTestCases()
 		} else if stackInput != "" {
-			OldSolveStack(1, stackInput)
+			flips := findAndFlip(stackInput)
+
+			fmt.Println(1, stackInput, flips)
 		} else if fileInput != "" {
 			HandleFile(fileInput)
 		} else if handleInput {

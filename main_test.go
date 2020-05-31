@@ -40,3 +40,12 @@ func TestFindAndFlipPancake(t *testing.T) {
 		t.Errorf("Test case 5 failed for stack `%v`, got %v, want: %v.", stack, actual, expected)
 	}
 }
+
+func TestFindAndFlipPancakeCustom(t *testing.T) {
+	stack := "+-+-+------++++++-+-+-+-+------++++++-+-+-+-+------++++++-+-+-+-+------++++++-+-+-+-+------++++++-+"
+	actual := findAndFlip(stack)
+	expected := 25
+	if actual != expected {
+		t.Errorf("Test case 1 failed for stack `%v`, got %v, want: %v.", stack, actual, expected)
+	}
+}

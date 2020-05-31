@@ -1,5 +1,7 @@
 package main
 
+import "fmt"
+
 // HandleTestCases will run the test cases for this program.
 // The following conventions are applied for input and output.
 // Input
@@ -14,7 +16,9 @@ package main
 func HandleTestCases() {
 	test := NewTestCases()
 	for _, testCase := range test.cases {
-		OldSolveStack(testCase.ID, testCase.Input)
+		flips := findAndFlip(testCase.Input)
+
+		fmt.Println(testCase.ID, testCase.Input, flips)
 	}
 }
 

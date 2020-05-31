@@ -18,13 +18,16 @@ func HandleInput() {
 	for {
 		fmt.Print("-> ")
 		text, _ := reader.ReadString('\n')
-		text = OldConvertNewLine(text)
+		text = ConvertNewLine(text)
 		if text != "" {
 			if text == "exit" || text == "quit" ||
 				text == "e" || text == "q" {
 				break
 			}
-			OldSolveStack(testID, text)
+			flips := findAndFlip(text)
+
+			fmt.Println(text, flips)
+
 			testID++
 			fmt.Print("\n")
 		}

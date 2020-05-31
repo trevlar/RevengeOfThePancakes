@@ -1,12 +1,11 @@
 package main
 
-// This terminal program accepts arguments for various functionality.
+import "fmt"
+
 func main() {
-	handleCommandLine()
+	fmt.Println("To run use `go test`")
 }
 
-// pancakes with a happy-side are defined as a + character.
-// pancakes with a blank-side are defined as a - character.
 const (
 	happySide = "+"
 	blankSide = "-"
